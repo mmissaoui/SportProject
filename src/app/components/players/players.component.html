@@ -1,0 +1,44 @@
+<table class="table" style="text-align: center;">
+    <tr>
+        <th>
+            <h5>Id</h5>
+        </th>
+        <th>
+            <h5>Name</h5>
+        </th>
+        <th>
+            <h5>Age</h5>
+        </th>
+        <th>
+            <h5>Number </h5>
+        </th>
+        <th>
+            <h5>Position </h5>
+        </th>
+        <th>
+            <h5>Team </h5>
+        </th>
+        <th>
+            <h5>Action </h5>
+        </th>
+    </tr>
+    <tr *ngFor="let p of players">
+        <td>{{p._id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.age}}</td>
+        <td>{{p.number}}</td>
+        <td>{{p.position}}</td>
+        <td>
+            <span *ngFor="let team of p.teamId">
+                {{team.name}}
+                {{team.owner}}
+                {{team.foundation}}
+            </span>
+        </td>
+        <td>
+            <button type="button" class="btn btn-success" (click)="goToInfo(p._id)">Display</button>
+            <button type="button" class="btn btn-info ml-2 mr-2" (click)="goToEdit(p._id)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="deletePlayer(p._id)">Delete</button>
+        </td>
+    </tr>
+</table>
